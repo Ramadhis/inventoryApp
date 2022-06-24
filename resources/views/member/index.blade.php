@@ -3,9 +3,11 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-md-12">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Data Member</h1>
+    </div>
     <div class="card">
       <div class="card-body">
-        <h3>Data Member</h3>
         <a href="{{ route('member.add')}}" class="btn btn-success mb-1" style="float:right;">Add</a>
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

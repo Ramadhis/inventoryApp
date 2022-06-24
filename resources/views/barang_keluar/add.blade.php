@@ -3,9 +3,11 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-md-12">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Buat Order</h1>
+    </div>
     <div class="card">
       <div class="card-body">
-        <h3>Buat Order</h3>
         @if (session('msg'))
         <div class="alert alert-warning alert-dismissible">
           <button type="button" class="close" data-dismiss="alert">&times;</button>

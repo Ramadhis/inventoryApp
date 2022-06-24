@@ -3,9 +3,11 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-md-12">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Tambah Barang</h1>
+    </div>
     <div class="card">
       <div class="card-body">
-        <h3>Tambah Barang</h3>
         @if(isset($barang))
         <form method="POST" action="{{ route('barang.update')}}">
         @else
@@ -52,7 +54,7 @@
             <!-- -->
             <div class="col-lg-6 col-sm-12 mb-3">
               <label>tgl_masuk</label>
-              <input type="text" name="tgl_masuk" value="{{isset($barang) ? $barang->tgl_masuk : '' }}" class="form-control" required>
+              <input type="date" name="tgl_masuk" value="{{isset($barang) ? $barang->tgl_masuk : '' }}" class="form-control" required>
             </div>
             <!-- -->
             <div class="col-lg-12 col-sm-12 mb-3">

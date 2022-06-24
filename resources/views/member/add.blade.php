@@ -3,16 +3,17 @@
 @section('content')
 <div class="row justify-content-center">
   <div class="col-md-12">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Tambah Member</h1>
+    </div>
     <div class="card">
       <div class="card-body">
-        <h3>Tambah Member</h3>
-        
         @if(isset($barang))
         <form method="POST" action="{{ route('member.update')}}">
         @else
         <form method="POST" action="{{ route('member.insert')}}">
         @endif
-        
+
         @csrf
         <input type="hidden" name="id" value="{{isset($member) ? $member->id : '' }}">
         <div class="col-md-12">

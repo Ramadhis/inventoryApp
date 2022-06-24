@@ -77,7 +77,7 @@
     </li>
 		<li class="nav-item">
         <a class="nav-link" href="{{ route('member.index')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-users"></i>
             <span>Member</span></a>
     </li>
     <!-- Divider -->
