@@ -44,3 +44,7 @@ Route::group(['prefix' => 'member','as' => 'member.' ,'middleware' => 'auth:web'
     Route::get('/edit/{id}', 'MemberController@edit')->name('edit');
     Route::post('/update', 'MemberController@update')->name('update');
 });
+
+Route::group(['prefix' => 'logbarang','as' => 'logbarang.' ,'middleware' => 'auth:web'],function (){
+    Route::get('/', 'LogbarangController@index')->name('index');
+});

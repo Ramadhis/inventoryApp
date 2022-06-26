@@ -75,10 +75,15 @@
             </div>
         </div>
     </li>
-		<li class="nav-item">
+	<li class="nav-item">
         <a class="nav-link" href="{{ route('member.index')}}">
             <i class="fas fa-fw fa-users"></i>
             <span>Member</span></a>
+    </li>
+	<li class="nav-item">
+        <a class="nav-link" href="{{ route('logbarang.index')}}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Report & Log</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

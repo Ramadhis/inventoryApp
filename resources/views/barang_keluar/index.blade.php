@@ -8,6 +8,18 @@
     </div>
     <div class="card">
       <div class="card-body">
+        @if (session('msg'))
+        <div class="alert alert-warning alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Terjadi Kesalahan</strong> {{ session('msg') }}
+        </div>
+        @endif
+        @if (session('success'))
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Berhasil.</strong> {{ session('success') }}
+        </div>
+        @endif
         <a href="{{ route('order.add')}}" class="btn btn-success mb-1" style="float:right;">Add</a>
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

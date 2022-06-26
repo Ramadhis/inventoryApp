@@ -18,8 +18,8 @@ class BarangmasukController extends Controller
         return view('barang_masuk/add');
     }
 
-    public function insert(Request $req){
-        $create = Barang::create([
+    public function arr_crud() {
+        return [            
             'nama' => $req->nama,
             'harga' => $req->harga,
             'jenis' => $req->jenis,
@@ -28,6 +28,12 @@ class BarangmasukController extends Controller
             'ukuran' => $req->ukuran,
             'jumlah' => $req->jumlah,
             'tgl_masuk'=> $req->tgl_masuk
+        ];
+    }
+
+    public function insert(Request $req){
+        $create = Barang::create([
+            arr_crud()
         ]);
         return redirect('barang');
     }
@@ -44,16 +50,7 @@ class BarangmasukController extends Controller
     }
 
     public function update(Request $req){
-        Barang::where('id',$req->id)->update([
-            'nama' => $req->nama,
-            'harga' => $req->harga,
-            'jenis' => $req->jenis,
-            'kode' => $req->kode,
-            'warna' => $req->warna,
-            'ukuran' => $req->ukuran,
-            'jumlah' => $req->jumlah,
-            'tgl_masuk'=> $req->tgl_masuk
-        ]);
+        Barang::where('id',$req->id)->update(arr_crud());
         return redirect('barang');
     }
 
