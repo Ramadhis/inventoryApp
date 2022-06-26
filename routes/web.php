@@ -35,6 +35,7 @@ Route::group(['prefix' => 'order','as' => 'order.' ,'middleware' => 'auth:web'],
     Route::get('/delete/{id}', 'BarangkeluarController@delete')->name('delete');
     Route::get('/edit/{id}', 'BarangkeluarController@edit')->name('edit');
     Route::post('/update', 'BarangkeluarController@update')->name('update');
+    Route::get('/export_excel', 'BarangkeluarController@export_excel')->name('export_excel');
 });
 Route::group(['prefix' => 'member','as' => 'member.' ,'middleware' => 'auth:web'],function (){
     Route::get('/', 'MemberController@index')->name('index');

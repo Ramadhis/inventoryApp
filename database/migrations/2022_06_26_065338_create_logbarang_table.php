@@ -16,6 +16,7 @@ class CreateLogbarangTable extends Migration
         Schema::create('logbarang', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_user');
+            $table->string('subject');
             $table->string('kode_barang');
             $table->string('status');
             $table->integer('jumlah');

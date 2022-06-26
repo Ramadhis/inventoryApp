@@ -20,7 +20,8 @@
           <strong>Berhasil.</strong> {{ session('success') }}
         </div>
         @endif
-        <a href="{{ route('order.add')}}" class="btn btn-success mb-1" style="float:right;">Add</a>
+        <a href="{{ route('order.export_excel')}}" class="btn btn-success mb-1" style="float:right;">Export-excel</a>
+        <a href="{{ route('order.add')}}" class="btn btn-success mb-1 me-1" style="float:right; margin-right:10px;">Add</a>
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Barang;
 use App\Member;
+use App\Logbarang;
+use App\Helpers\Helper;
 use Auth;
 use Input;
+
+use App\Exports\LaporanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BarangkeluarController extends Controller
 {
@@ -32,6 +37,17 @@ class BarangkeluarController extends Controller
                 ]
             );
         }
+
+        //add to log        
+        $log = new Helper;
+        $data = [
+            'kode_barang' => $find_order->kode_barang,
+            'status' => 'Edit',
+            'jumlah' =>  $find_order->jumlah,
+        ];
+        $log->Log('User menghapus data order, otomatis mengembalikan data stok',$data);
+        //end add to log
+
         //kembalikan stok
         $update_stok = Barang::where('id',$cek_barang->id)->update([
             'jumlah' => ((int)$find_order->jumlah + (int)$cek_barang->jumlah),
@@ -44,7 +60,7 @@ class BarangkeluarController extends Controller
             [
                 'success' => $msg,
             ]
-        );;
+        );
     }
 
     public function edit($id){
@@ -132,6 +148,17 @@ class BarangkeluarController extends Controller
             'jumlah' => $req->jumlah,
             'total_harga' => $total_harga,
         ]);
+
+        //add to log        
+        $log = new Helper;
+        $data = [
+            'kode_barang' => $req->kode_barang,
+            'status' => 'create',
+            'jumlah' =>  $req->jumlah,
+        ];
+        $log->Log('User Membuat data order baru',$data);
+        //end add to log
+
         return redirect('order');
     }
 
@@ -195,6 +222,22 @@ class BarangkeluarController extends Controller
             'jumlah' => $req->jumlah,
             'total_harga' => $total_harga,
         ]);
+        
+        //add to log        
+        $log = new Helper;
+        $data = [
+            'kode_barang' => $req->kode_barang,
+            'status' => 'Edit',
+            'jumlah' =>  $req->jumlah,
+        ];
+        $log->Log('User Mengubah data order',$data);
+        //end add to log
+
         return redirect('order');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new LaporanExport, 'laporan_barang_keluar.xlsx');
+	}
 }

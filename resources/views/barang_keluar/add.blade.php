@@ -36,7 +36,7 @@
             <!-- -->
             <div class="col-lg-6 col-sm-12 mb-3">
               <label>jumlah</label>
-              <input type="number" name="jumlah" value="{{isset($order) ? trim((int)$order->jumlah) : 0 }}{{session('order') ? session('order')['jumlah'] : '' }}" class="form-control" required>
+              <input type="number" name="jumlah" value="{{isset($order) ? trim((int)$order->jumlah) : '' }}{{session('order') ? session('order')['jumlah'] : '' }}" class="form-control" required>
             </div>
             <!-- -->
             <div class="col-lg-12 col-sm-12 mb-3">
